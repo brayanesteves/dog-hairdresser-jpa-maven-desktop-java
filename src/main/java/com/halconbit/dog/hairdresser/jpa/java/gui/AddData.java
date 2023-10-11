@@ -1,16 +1,30 @@
 package com.halconbit.dog.hairdresser.jpa.java.gui;
 
+import javax.swing.JComboBox;
+
 /**
  *
  * @author Brayan Esteves
  */
 public class AddData extends javax.swing.JFrame {
+    
+    private void loadItemComboBox() {
+        this.comboboxAllergic.addItem("-");
+        this.comboboxAllergic.addItem("Yes");
+        this.comboboxAllergic.addItem("No");
+        
+        this.comboboxSpecialAttention.addItem("-");
+        this.comboboxSpecialAttention.addItem("Yes");
+        this.comboboxSpecialAttention.addItem("No");
+    }
 
     /**
      * Creates new form AddData
      */
     public AddData() {
+        
         initComponents();
+        loadItemComboBox();
     }
 
     /**
@@ -41,8 +55,8 @@ public class AddData extends javax.swing.JFrame {
         textfieldOwnersPhone = new javax.swing.JTextField();
         textfieldOwnersName = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        comboBoxAllergic = new javax.swing.JComboBox<>();
+        textareaObservatios = new javax.swing.JTextArea();
+        comboboxAllergic = new javax.swing.JComboBox<>();
         comboboxSpecialAttention = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
         buttonClean = new javax.swing.JButton();
@@ -73,11 +87,11 @@ public class AddData extends javax.swing.JFrame {
 
         labelObeservations.setText("Observations:");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        textareaObservatios.setColumns(20);
+        textareaObservatios.setRows(5);
+        jScrollPane1.setViewportView(textareaObservatios);
 
-        comboBoxAllergic.setToolTipText("");
+        comboboxAllergic.setToolTipText("");
 
         javax.swing.GroupLayout panelFormClientLayout = new javax.swing.GroupLayout(panelFormClient);
         panelFormClient.setLayout(panelFormClientLayout);
@@ -108,7 +122,7 @@ public class AddData extends javax.swing.JFrame {
                     .addComponent(textfieldOwnersName)
                     .addComponent(textfieldOwnersPhone)
                     .addComponent(jScrollPane1)
-                    .addComponent(comboBoxAllergic, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(comboboxAllergic, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(comboboxSpecialAttention, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -134,7 +148,7 @@ public class AddData extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelFormClientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelAllergic)
-                    .addComponent(comboBoxAllergic, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboboxAllergic, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(panelFormClientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelSpecialAttention)
@@ -237,7 +251,15 @@ public class AddData extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonCleanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCleanActionPerformed
-        // TODO add your handling code here:
+        this.textfieldClientNumber.setText("");
+        this.textfieldName.setText("");
+        this.textfieldBreed.setText("");
+        this.textfieldColor.setText("");
+        this.textareaObservatios.setText("");        
+        this.textfieldOwnersName.setText("");
+        this.textfieldOwnersPhone.setText("");
+        this.comboboxAllergic.setSelectedIndex(0);
+        this.comboboxSpecialAttention.setSelectedIndex(0);
     }//GEN-LAST:event_buttonCleanActionPerformed
 
     private void buttonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddActionPerformed
@@ -248,11 +270,10 @@ public class AddData extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonAdd;
     private javax.swing.JButton buttonClean;
-    private javax.swing.JComboBox<String> comboBoxAllergic;
+    private javax.swing.JComboBox<String> comboboxAllergic;
     private javax.swing.JComboBox<String> comboboxSpecialAttention;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel labelAllergic;
     private javax.swing.JLabel labelBreed;
     private javax.swing.JLabel labelClientNumber;
@@ -265,6 +286,7 @@ public class AddData extends javax.swing.JFrame {
     private javax.swing.JLabel labelTitle;
     private javax.swing.JPanel panelAddData;
     private javax.swing.JPanel panelFormClient;
+    private javax.swing.JTextArea textareaObservatios;
     private javax.swing.JTextField textfieldBreed;
     private javax.swing.JTextField textfieldClientNumber;
     private javax.swing.JTextField textfieldColor;
