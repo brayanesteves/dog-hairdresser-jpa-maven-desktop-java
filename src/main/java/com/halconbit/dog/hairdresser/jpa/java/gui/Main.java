@@ -1,10 +1,12 @@
 package com.halconbit.dog.hairdresser.jpa.java.gui;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author brayan
  */
-public class Main extends javax.swing.JFrame {
+public class Main extends JFrame {
 
     /**
      * Creates new form Main
@@ -41,6 +43,11 @@ public class Main extends javax.swing.JFrame {
         buttonAdd.setMaximumSize(new java.awt.Dimension(83, 23));
         buttonAdd.setMinimumSize(new java.awt.Dimension(83, 23));
         buttonAdd.setPreferredSize(new java.awt.Dimension(83, 23));
+        buttonAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAddActionPerformed(evt);
+            }
+        });
 
         buttonRead.setFont(new java.awt.Font("Lato", 1, 23)); // NOI18N
         buttonRead.setText("Read data");
@@ -122,6 +129,12 @@ public class Main extends javax.swing.JFrame {
     private void buttonReadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonReadActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_buttonReadActionPerformed
+
+    private void buttonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddActionPerformed
+        AddData addData = new AddData();
+        addData.setVisible(true);
+        addData.setLocationRelativeTo(null);
+    }//GEN-LAST:event_buttonAddActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonAdd;

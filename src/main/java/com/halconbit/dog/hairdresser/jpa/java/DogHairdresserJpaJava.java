@@ -1,5 +1,7 @@
 package com.halconbit.dog.hairdresser.jpa.java;
 
+import com.halconbit.dog.hairdresser.jpa.java.gui.Main;
+
 /**
  * @author Brayan Esteves
  * Challenge:
@@ -69,6 +71,8 @@ package com.halconbit.dog.hairdresser.jpa.java;
 public class DogHairdresserJpaJava {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        Main mainWindows = new Main();
+        mainWindows.setVisible(true);
+        mainWindows.setLocationRelativeTo(null);
     }
 }
