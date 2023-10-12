@@ -1,5 +1,6 @@
 package com.halconbit.dog.hairdresser.jpa.java.gui;
 
+import com.halconbit.dog.hairdresser.jpa.java.controller.Index;
 import javax.swing.JComboBox;
 
 /**
@@ -7,6 +8,8 @@ import javax.swing.JComboBox;
  * @author Brayan Esteves
  */
 public class AddData extends javax.swing.JFrame {
+    
+    Index index = new Index();
     
     private void loadItemComboBox() {
         this.comboboxAllergic.addItem("-");
@@ -263,7 +266,18 @@ public class AddData extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonCleanActionPerformed
 
     private void buttonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddActionPerformed
-        // TODO add your handling code here:
+        
+        String name             = this.textfieldName.getText();
+        String bread            = this.textfieldBreed.getText();
+        String color            = this.textfieldColor.getText();
+        String observations     = this.textareaObservatios.getText();    
+        String ownersName       = this.textfieldOwnersName.getText();
+        String ownersPhone      = this.textfieldOwnersPhone.getText();
+        String allergic         = (String) this.comboboxAllergic.getSelectedItem();
+        String specialAttention = (String) this.comboboxSpecialAttention.getSelectedItem();
+        
+        this.index.save(name, bread, color, observations, ownersName, ownersPhone, allergic, specialAttention);
+        
     }//GEN-LAST:event_buttonAddActionPerformed
 
 
