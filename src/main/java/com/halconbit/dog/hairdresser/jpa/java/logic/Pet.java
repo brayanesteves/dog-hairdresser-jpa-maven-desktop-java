@@ -1,11 +1,20 @@
 package com.halconbit.dog.hairdresser.jpa.java.logic;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
 /**
  *
  * @author Brayan Esteves
  */
+@Entity
 public class Pet {
     
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int    customer_number;
     private String dog_name;
     private String breed;
@@ -15,6 +24,7 @@ public class Pet {
     private String observations;
     
     // Ratio 1:1
+    @OneToOne
     private Owner  owner;
 
     public Pet() {

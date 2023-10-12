@@ -1,11 +1,19 @@
 package com.halconbit.dog.hairdresser.jpa.java.logic;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  *
  * @author Brayan Esteves
  */
+@Entity
 public class Owner {
     
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int    owner_id;
     private String name;
     private String cellphone_number;
