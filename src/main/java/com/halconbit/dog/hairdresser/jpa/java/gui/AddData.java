@@ -2,6 +2,8 @@ package com.halconbit.dog.hairdresser.jpa.java.gui;
 
 import com.halconbit.dog.hairdresser.jpa.java.controller.Index;
 import javax.swing.JComboBox;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -277,6 +279,12 @@ public class AddData extends javax.swing.JFrame {
         String specialAttention = (String) this.comboboxSpecialAttention.getSelectedItem();
         
         this.index.save(name, bread, color, observations, ownersName, ownersPhone, allergic, specialAttention);
+        
+        JOptionPane optionPane = new JOptionPane("Save successful");
+        optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE);
+        JDialog dialog = optionPane.createDialog("Save Successful");
+        dialog.setAlwaysOnTop(false);
+        dialog.setVisible(true);
         
     }//GEN-LAST:event_buttonAddActionPerformed
 
