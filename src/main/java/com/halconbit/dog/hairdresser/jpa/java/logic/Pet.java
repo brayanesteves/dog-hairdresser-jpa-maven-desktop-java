@@ -1,5 +1,6 @@
 package com.halconbit.dog.hairdresser.jpa.java.logic;
 
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,7 +12,7 @@ import javax.persistence.OneToOne;
  * @author Brayan Esteves
  */
 @Entity
-public class Pet {
+public class Pet implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -42,24 +43,24 @@ public class Pet {
         this.owner           = owner;
     }
 
-    public int getCustomerNumber() {
-        return this.customer_number;
+    public int getCustomer_number() {
+        return customer_number;
     }
 
-    public void setCustomerNumber(int customer_number) {
+    public void setCustomer_number(int customer_number) {
         this.customer_number = customer_number;
     }
 
-    public String getDogName() {
-        return this.dog_name;
+    public String getDog_name() {
+        return dog_name;
     }
 
-    public void setDogName(String dog_name) {
+    public void setDog_name(String dog_name) {
         this.dog_name = dog_name;
     }
 
     public String getBreed() {
-        return this.breed;
+        return breed;
     }
 
     public void setBreed(String breed) {
@@ -67,7 +68,7 @@ public class Pet {
     }
 
     public String getColor() {
-        return this.color;
+        return color;
     }
 
     public void setColor(String color) {
@@ -75,7 +76,7 @@ public class Pet {
     }
 
     public String getAllergic() {
-        return this.allergic;
+        return allergic;
     }
 
     public void setAllergic(String allergic) {
@@ -83,15 +84,15 @@ public class Pet {
     }
 
     public String getSpecial_care() {
-        return this.special_care;
+        return special_care;
     }
 
-    public void setSpecialCare(String special_care) {
+    public void setSpecial_care(String special_care) {
         this.special_care = special_care;
     }
 
     public String getObservations() {
-        return this.observations;
+        return observations;
     }
 
     public void setObservations(String observations) {
@@ -99,13 +100,11 @@ public class Pet {
     }
 
     public Owner getOwner() {
-        return this.owner;
+        return owner;
     }
 
     public void setOwner(Owner owner) {
         this.owner = owner;
     }
-    
-    
     
 }

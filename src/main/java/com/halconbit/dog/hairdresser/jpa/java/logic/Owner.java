@@ -1,5 +1,6 @@
 package com.halconbit.dog.hairdresser.jpa.java.logic;
 
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,7 +11,7 @@ import javax.persistence.Id;
  * @author Brayan Esteves
  */
 @Entity
-public class Owner {
+public class Owner implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -29,37 +30,36 @@ public class Owner {
         this.address          = address;
     }
 
-    public int getOwnerId() {
-        return this.owner_id;
+    public int getOwner_id() {
+        return owner_id;
     }
 
-    public void setOwnerId(int owner_id) {
+    public void setOwner_id(int owner_id) {
         this.owner_id = owner_id;
     }
 
     public String getName() {
-        return this.name;
+        return name;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public String getCellphoneNumber() {
-        return this.cellphone_number;
+    public String getCellphone_number() {
+        return cellphone_number;
     }
 
-    public void setCellphoneNumber(String cellphone_number) {
+    public void setCellphone_number(String cellphone_number) {
         this.cellphone_number = cellphone_number;
     }
 
     public String getAddress() {
-        return this.address;
+        return address;
     }
 
     public void setAddress(String address) {
         this.address = address;
     }
-    
     
 }
