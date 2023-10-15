@@ -196,8 +196,15 @@ public class ReadData extends javax.swing.JFrame {
                  * <b>1</b> is <i>Column</i> <b>1</b> of <b>Customer number</b>
                  */
                 int customer_number = Integer.parseInt(String.valueOf(this.tableDogHairdresser.getValueAt(this.tableDogHairdresser.getSelectedRow(), 1)));
-                this.index.updatePet(customer_number);
+                
+                UpdateData updateData = new UpdateData(customer_number);
+                updateData.setVisible(true);
+                updateData.setLocationRelativeTo(null);
+                
+                
+                
                 loadTable();
+                
                 showMessage("Update successful.", JOptionPane.INFORMATION_MESSAGE, "Update Successful.");
                 
             } else {

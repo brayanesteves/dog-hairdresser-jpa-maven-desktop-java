@@ -44,5 +44,9 @@ public class Index {
     public void updatePet(int customer_number) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+    public Pet fetchingPet(int customer_number) {
+        return this.persistence.fetchingPet(customer_number);
+    }
     
 }

@@ -27,16 +27,20 @@ public class Persistence {
         
     }
 
-    List<Pet> fetchingPets() {
+    public List<Pet> fetchingPets() {
         return this.petJpaController.findPetEntities();
     }
 
-    void deletePet(int customer_number) {
+    public void deletePet(int customer_number) {
         try {
             this.petJpaController.destroy(customer_number);
         } catch (NonexistentEntityException ex) {
             Logger.getLogger(Persistence.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    public Pet fetchingPet(int customer_number) {
+        return this.petJpaController.findPet(customer_number);
     }
     
 }
