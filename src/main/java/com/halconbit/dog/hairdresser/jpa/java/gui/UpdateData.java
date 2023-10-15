@@ -13,7 +13,8 @@ import javax.swing.JOptionPane;
 public class UpdateData extends javax.swing.JFrame {
     
     Index index = new Index();
-    int customer_number;
+    Pet   pet   = null;
+    int   customer_number;
     
     private void loadItemComboBox() {
         this.comboboxAllergic.addItem("-");
@@ -282,13 +283,9 @@ public class UpdateData extends javax.swing.JFrame {
         String allergic         = (String) this.comboboxAllergic.getSelectedItem();
         String specialAttention = (String) this.comboboxSpecialAttention.getSelectedItem();
         
-        this.index.save(name, bread, color, observations, ownersName, ownersPhone, allergic, specialAttention);
+        this.index.updatePet(this.pet, name, bread, color, observations, ownersName, ownersPhone, allergic, specialAttention);
         
-        JOptionPane optionPane = new JOptionPane("Save successful");
-        optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE);
-        JDialog dialog = optionPane.createDialog("Save Successful");
-        dialog.setAlwaysOnTop(false);
-        dialog.setVisible(true);
+        showMessage("Update successful.", JOptionPane.INFORMATION_MESSAGE, "Update Successful.");
         
     }//GEN-LAST:event_buttonUpdateActionPerformed
 
@@ -323,7 +320,7 @@ public class UpdateData extends javax.swing.JFrame {
 
     private void loadDatas(int customer_number) {
         
-        Pet pet = this.index.fetchingPet(customer_number);
+        this.pet = this.index.fetchingPet(customer_number);
         
         this.textfieldClientNumber.setText(String.valueOf(pet.getCustomer_number()));
         this.textfieldName.setText(pet.getDog_name());
@@ -349,5 +346,13 @@ public class UpdateData extends javax.swing.JFrame {
             this.comboboxSpecialAttention.setSelectedIndex(0);
         }
         
+    }
+    
+    public void showMessage(String message, int type, String title) {
+        JOptionPane optionPane = new JOptionPane(message);
+        optionPane.setMessageType(type);
+        JDialog dialog = optionPane.createDialog(title);
+        dialog.setAlwaysOnTop(false);
+        dialog.setVisible(true);
     }
 }

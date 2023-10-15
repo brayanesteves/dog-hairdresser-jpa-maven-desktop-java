@@ -205,8 +205,6 @@ public class ReadData extends javax.swing.JFrame {
                 
                 loadTable();
                 
-                showMessage("Update successful.", JOptionPane.INFORMATION_MESSAGE, "Update Successful.");
-                
             } else {
                 showMessage("Not selected data at update.", JOptionPane.WARNING_MESSAGE, "Not selected data at update.");
             }

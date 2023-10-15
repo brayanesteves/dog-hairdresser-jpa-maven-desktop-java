@@ -15,8 +15,8 @@ import java.util.logging.Logger;
  */
 public class Persistence {
     
-    OwnerJpaController ownerJpaController = new OwnerJpaController();
-    PetJpaController   petJpaController   = new PetJpaController();
+    private OwnerJpaController ownerJpaController = new OwnerJpaController();
+    private PetJpaController   petJpaController   = new PetJpaController();
 
     public void save(Owner owner, Pet pet) {
         
@@ -41,6 +41,26 @@ public class Persistence {
 
     public Pet fetchingPet(int customer_number) {
         return this.petJpaController.findPet(customer_number);
+    }
+
+    public void updatePet(Pet pet) {
+        try {
+            this.petJpaController.edit(pet);
+        } catch (Exception ex) {
+            Logger.getLogger(Persistence.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public Owner fetchingOwner(int owner_id) {
+        return this.ownerJpaController.findOwner(owner_id);
+    }
+
+    public void updateOwner(Owner owner) {
+        try {
+            this.ownerJpaController.edit(owner);
+        } catch (Exception ex) {
+            Logger.getLogger(Persistence.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }

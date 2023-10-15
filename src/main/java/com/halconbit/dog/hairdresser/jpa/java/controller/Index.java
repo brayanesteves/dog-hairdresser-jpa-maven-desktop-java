@@ -41,12 +41,35 @@ public class Index {
         this.persistence.deletePet(customer_number);
     }
 
-    public void updatePet(int customer_number) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
     public Pet fetchingPet(int customer_number) {
         return this.persistence.fetchingPet(customer_number);
+    }
+
+    public void updatePet(Pet pet, String name, String bread, String color, String observations, String ownersName, String ownersPhone, String allergic, String specialAttention) {
+        
+        pet.setDog_name(name);
+        pet.setBreed(bread);
+        pet.setColor(color);
+        pet.setObservations(observations);
+        pet.setSpecial_care(specialAttention);
+        pet.setAllergic(allergic);
+        
+        // Update pet.
+        this.persistence.updatePet(pet);
+        
+        Owner owner = this.fetchingOwner(pet.getOwner().getOwner_id());        
+        owner.setName(ownersName);
+        owner.setCellphone_number(ownersPhone);
+        
+        this.updateOwner(owner);
+    }
+
+    private Owner fetchingOwner(int owner_id) {
+        return this.persistence.fetchingOwner(owner_id);
+    }
+
+    private void updateOwner(Owner owner) {
+        this.persistence.updateOwner(owner);
     }
     
 }
