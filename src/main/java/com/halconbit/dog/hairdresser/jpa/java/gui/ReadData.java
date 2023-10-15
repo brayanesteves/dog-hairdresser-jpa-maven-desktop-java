@@ -201,7 +201,7 @@ public class ReadData extends javax.swing.JFrame {
                 updateData.setVisible(true);
                 updateData.setLocationRelativeTo(null);
                 
-                
+                this.dispose();
                 
                 loadTable();
                 
@@ -210,7 +210,8 @@ public class ReadData extends javax.swing.JFrame {
             }
         } else {
             showMessage("Not exists data.", JOptionPane.ERROR_MESSAGE, "Not exists data.");
-        }
+        }        
+        
     }//GEN-LAST:event_buttonUpdateActionPerformed
 
     public void showMessage(String message, int type, String title) {

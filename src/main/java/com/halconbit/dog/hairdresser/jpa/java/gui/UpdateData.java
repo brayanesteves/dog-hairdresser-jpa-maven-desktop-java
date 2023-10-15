@@ -286,6 +286,12 @@ public class UpdateData extends javax.swing.JFrame {
         this.index.updatePet(this.pet, name, bread, color, observations, ownersName, ownersPhone, allergic, specialAttention);
         
         showMessage("Update successful.", JOptionPane.INFORMATION_MESSAGE, "Update Successful.");
+                
+        ReadData readData = new ReadData();
+        readData.setVisible(true);
+        readData.setLocationRelativeTo(null);
+        
+        this.dispose();
         
     }//GEN-LAST:event_buttonUpdateActionPerformed
 
