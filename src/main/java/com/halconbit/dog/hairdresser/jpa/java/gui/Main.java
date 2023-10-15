@@ -34,7 +34,7 @@ public class Main extends JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         labelTitle.setFont(new java.awt.Font("Lato", 1, 47)); // NOI18N
-        labelTitle.setText("Peluquería Canina");
+        labelTitle.setText("Dog Hairdresser");
 
         panelBotones.setPreferredSize(new java.awt.Dimension(443, 421));
 

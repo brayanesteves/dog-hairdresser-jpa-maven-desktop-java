@@ -4,7 +4,10 @@ import com.halconbit.dog.hairdresser.jpa.java.logic.Owner;
 import com.halconbit.dog.hairdresser.jpa.java.logic.Pet;
 import com.halconbit.dog.hairdresser.jpa.java.persistence.OwnerJpaController;
 import com.halconbit.dog.hairdresser.jpa.java.persistence.PetJpaController;
+import com.halconbit.dog.hairdresser.jpa.java.persistence.exceptions.NonexistentEntityException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -26,6 +29,14 @@ public class Persistence {
 
     List<Pet> fetchingPets() {
         return this.petJpaController.findPetEntities();
+    }
+
+    void deletePet(int customer_number) {
+        try {
+            this.petJpaController.destroy(customer_number);
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(Persistence.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }

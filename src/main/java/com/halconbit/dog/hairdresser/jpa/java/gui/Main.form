@@ -69,7 +69,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Lato" size="47" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Peluquer&#xed;a Canina"/>
+            <Property name="text" type="java.lang.String" value="Dog Hairdresser"/>
           </Properties>
         </Component>
         <Container class="javax.swing.JPanel" name="panelBotones">

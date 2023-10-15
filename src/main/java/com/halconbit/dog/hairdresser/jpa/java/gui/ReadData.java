@@ -3,6 +3,8 @@ package com.halconbit.dog.hairdresser.jpa.java.gui;
 import com.halconbit.dog.hairdresser.jpa.java.controller.Index;
 import com.halconbit.dog.hairdresser.jpa.java.logic.Pet;
 import java.util.List;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -71,6 +73,11 @@ public class ReadData extends javax.swing.JFrame {
         buttonUpdate.setToolTipText("");
 
         buttonDelete.setText("Delete");
+        buttonDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonDeleteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelContentLayout = new javax.swing.GroupLayout(panelContent);
         panelContent.setLayout(panelContentLayout);
@@ -148,6 +155,37 @@ public class ReadData extends javax.swing.JFrame {
         loadTable();
     }//GEN-LAST:event_formWindowOpened
 
+    private void buttonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeleteActionPerformed
+        // I check that the table is not empty.
+        if(this.tableDogHairdresser.getRowCount() > 0) {
+            // I check that a record has been selected.
+            /**
+             * -1 = No selected row
+             */
+            if(this.tableDogHairdresser.getSelectedRow() != -1) {
+                /**
+                 * <b>1</b> is <i>Column</i> <b>1</b> of <b>Customer number</b>
+                 */
+                int customer_number = Integer.parseInt(String.valueOf(this.tableDogHairdresser.getValueAt(this.tableDogHairdresser.getSelectedRow(), 1)));
+                this.index.deletePet(customer_number);
+                loadTable();
+                showMessage("Delete successful.", JOptionPane.INFORMATION_MESSAGE, "Delete Successful.");
+                
+            } else {
+                showMessage("Not selected data at delete.", JOptionPane.WARNING_MESSAGE, "Not selected data at delete.");
+            }
+        } else {
+            showMessage("Not exists data.", JOptionPane.ERROR_MESSAGE, "Not exists data.");
+        }
+    }//GEN-LAST:event_buttonDeleteActionPerformed
+
+    public void showMessage(String message, int type, String title) {
+        JOptionPane optionPane = new JOptionPane(message);
+        optionPane.setMessageType(type);
+        JDialog dialog = optionPane.createDialog(title);
+        dialog.setAlwaysOnTop(false);
+        dialog.setVisible(true);
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonDelete;
@@ -179,6 +217,8 @@ public class ReadData extends javax.swing.JFrame {
         
         // Iterate through the list and fetch each element in the table.
         if(listPets != null) {
+            // Set variable.
+            this.position = 1;
             for(Pet pet : listPets) {
                 Object[] object = {this.position, pet.getCustomer_number(), pet.getDog_name(), pet.getBreed(), pet.getColor(), pet.getAllergic(), pet.getSpecial_care(), pet.getOwner().getName(), pet.getOwner().getCellphone_number()};
                 this.position++;

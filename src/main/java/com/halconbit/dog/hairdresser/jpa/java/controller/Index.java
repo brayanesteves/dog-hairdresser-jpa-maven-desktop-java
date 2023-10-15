@@ -36,5 +36,9 @@ public class Index {
     public List<Pet> fetchingPets() {
         return this.persistence.fetchingPets();
     }
+
+    public void deletePet(int customer_number) {
+        this.persistence.deletePet(customer_number);
+    }
     
 }
