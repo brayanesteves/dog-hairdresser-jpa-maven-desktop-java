@@ -40,5 +40,9 @@ public class Index {
     public void deletePet(int customer_number) {
         this.persistence.deletePet(customer_number);
     }
+
+    public void updatePet(int customer_number) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
 }

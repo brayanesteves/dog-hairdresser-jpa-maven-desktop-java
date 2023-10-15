@@ -71,6 +71,11 @@ public class ReadData extends javax.swing.JFrame {
 
         buttonUpdate.setText("Update");
         buttonUpdate.setToolTipText("");
+        buttonUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonUpdateActionPerformed(evt);
+            }
+        });
 
         buttonDelete.setText("Delete");
         buttonDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -178,6 +183,30 @@ public class ReadData extends javax.swing.JFrame {
             showMessage("Not exists data.", JOptionPane.ERROR_MESSAGE, "Not exists data.");
         }
     }//GEN-LAST:event_buttonDeleteActionPerformed
+
+    private void buttonUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonUpdateActionPerformed
+        // I check that the table is not empty.
+        if(this.tableDogHairdresser.getRowCount() > 0) {
+            // I check that a record has been selected.
+            /**
+             * -1 = No selected row
+             */
+            if(this.tableDogHairdresser.getSelectedRow() != -1) {
+                /**
+                 * <b>1</b> is <i>Column</i> <b>1</b> of <b>Customer number</b>
+                 */
+                int customer_number = Integer.parseInt(String.valueOf(this.tableDogHairdresser.getValueAt(this.tableDogHairdresser.getSelectedRow(), 1)));
+                this.index.updatePet(customer_number);
+                loadTable();
+                showMessage("Update successful.", JOptionPane.INFORMATION_MESSAGE, "Update Successful.");
+                
+            } else {
+                showMessage("Not selected data at update.", JOptionPane.WARNING_MESSAGE, "Not selected data at update.");
+            }
+        } else {
+            showMessage("Not exists data.", JOptionPane.ERROR_MESSAGE, "Not exists data.");
+        }
+    }//GEN-LAST:event_buttonUpdateActionPerformed
 
     public void showMessage(String message, int type, String title) {
         JOptionPane optionPane = new JOptionPane(message);
