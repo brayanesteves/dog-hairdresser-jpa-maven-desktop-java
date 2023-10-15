@@ -2,6 +2,7 @@ package com.halconbit.dog.hairdresser.jpa.java.controller;
 
 import com.halconbit.dog.hairdresser.jpa.java.logic.Owner;
 import com.halconbit.dog.hairdresser.jpa.java.logic.Pet;
+import java.util.List;
 
 /**
  *
@@ -30,6 +31,10 @@ public class Index {
         
         this.persistence.save(owner, pet);
         
+    }
+
+    public List<Pet> fetchingPets() {
+        return this.persistence.fetchingPets();
     }
     
 }

@@ -4,6 +4,7 @@ import com.halconbit.dog.hairdresser.jpa.java.logic.Owner;
 import com.halconbit.dog.hairdresser.jpa.java.logic.Pet;
 import com.halconbit.dog.hairdresser.jpa.java.persistence.OwnerJpaController;
 import com.halconbit.dog.hairdresser.jpa.java.persistence.PetJpaController;
+import java.util.List;
 
 /**
  *
@@ -21,6 +22,10 @@ public class Persistence {
         // Create the <b>"pet"</b> in the database.
         this.petJpaController.create(pet);
         
+    }
+
+    List<Pet> fetchingPets() {
+        return this.petJpaController.findPetEntities();
     }
     
 }
